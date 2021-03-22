@@ -10,6 +10,8 @@ def getprice(symbol):
 
     try:
         if(exchange.has['fetchTickers']):
+            #if you want to fetch the whole binance data, ucomment this line
+            # print(exchange.fetch_tickers())
             print(exchange.fetch_tickers(['ETH/BTC'])) #fetch minimal data on ETH
 
         price = exchange.fetch_ticker(symbol)
