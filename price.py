@@ -9,8 +9,8 @@ def getprice(symbol):
     })
 
     try:
-        # if(exchange.has['fetchTickers']):
-            # print(exchange.fetch_tickers())
+        if(exchange.has['fetchTickers']):
+            print(exchange.fetch_tickers(['ETH/BTC'])) #fetch minimal data on ETH
 
         price = exchange.fetch_ticker(symbol)
         fprice = price['info']['lastPrice']
