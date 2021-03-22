@@ -9,6 +9,9 @@ def getprice(symbol):
     })
 
     try:
+        if(exchange.has['fetchTickers']):
+            print(exchange.fetch_tickers())
+
         price = exchange.fetch_ticker(symbol)
         fprice = price['info']['lastPrice']
         if(sep[1] == "USD" or sep[1] == 'USDT'):
@@ -21,4 +24,4 @@ def getprice(symbol):
         return 'Found an error', type(error).__name__, error.args
     raise
 
-print(getprice("btc/usdt"))
+# print(getprice("btc/usdt"))
