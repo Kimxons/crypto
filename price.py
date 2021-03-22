@@ -1,15 +1,12 @@
 import ccxt
 
 def getprice(symbol):
-    symbol = symbol.upper()
+    symbol = symbol.upper() #USDT/BTC
     sep = symbol.split("/")
 
     exchange = ccxt.binance({
         'enableRateLimits': True,
     })
-
-    markets = exchange.load_markets()
-    #print(exchange.id, "\n", markets)
 
     try:
         price = exchange.fetch_ticker(symbol)
@@ -23,4 +20,5 @@ def getprice(symbol):
     except (ccxt.ExchangeError, ccxt.NetworkError) as error:
         return 'Found an error', type(error).__name__, error.args
     raise
+
 print(getprice("btc/usdt"))
