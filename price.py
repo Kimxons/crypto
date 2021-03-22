@@ -1,7 +1,7 @@
 import ccxt
 
 def getprice(symbol):
-    symbol = symbol.upper() #USDT/BTC
+    symbol = input(symbol.upper()) #USDT/BTC
     sep = symbol.split("/")
 
     exchange = ccxt.binance({
@@ -24,4 +24,4 @@ def getprice(symbol):
         return 'Found an error', type(error).__name__, error.args
     raise
 
-# print(getprice("btc/usdt"))
+print(getprice("Enter market symbol: "))
